@@ -116,7 +116,7 @@ def cliffs_1(items):
     # current_location = [0, 4]
     directions = ["s", "e"]
     destinations = [0, desert_3, cliffs_2, 0]
-    print_pause("\nWestern Cliffs\n", 2)
+    print_pause("\nNorthern Cliffs\n", 2)
     print_pause("Tall cliffs loom above you. Their height is staggering\n", 2)
     random_event()
     choose_direction(directions, destinations, items)
@@ -277,8 +277,9 @@ def hut_2(items):
                 items.append('Gloves')
                 print_pause("\n\nYou acquired 'Gloves'\n", 2)
                 hut_2(items)
-        else:
+        elif 'Troll Tooth' not in items:
             print_pause("Granny Weatherwax says, \n   'By the way...'\n\n", 3)
+
             if 'Bandana' not in items:
                 print_pause("   'You'll need something to help"
                             " you breathe in the swamp'\n", 2)
@@ -300,6 +301,8 @@ def hut_2(items):
             else:
                 print_pause("   'I hope you know how to use that sword,"
                             " you'll need it to defeat the troll!'\n", 2)
+        else:
+            print_pause("   'Oh goody, you got rid of that nasty troll'", 2)
         choose_direction(directions, destinations, items)
     else:
         print_pause("   'Oh goody! My mushroom!!'", 2)
@@ -534,8 +537,8 @@ def random_event():
               " you.  Was that real? or just in your head?", "You hear a small"
               " critter scamper away, but you didn't catch a glimpse of it.",
               "A hot, dry wind breeze blows from the west.", "You could really"
-              "go for a drink right about now.", "Just where the hell is this "
-              "place anyway?", "It is eerily quiet", "The air feels heavy",
+              "  o for a drink right about now.", "Just where the hell is this"
+              " place anyway?", "It is eerily quiet", "The air feels heavy",
               "It seems like someone has been here recently", "The songs of"
               " the birds makes music to your ears.", "You sneeze 'ACHOO'.",
               "You hear footsteps behind you, but when you turn"
