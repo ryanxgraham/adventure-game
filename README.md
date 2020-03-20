@@ -3,7 +3,7 @@ Source code for a riveting text-based adventure game.
 
 This project is used to run a simple game, all contained within one Python file.
 
-I implemented functionality in Python that users a series of functions to walk users through the game, based on their direction of choosing at each point.
+I implemented functionality in Python that uses a series of functions to walk users through the game, based on their direction of choosing at each point.
 
 
 ### Prerequesites
