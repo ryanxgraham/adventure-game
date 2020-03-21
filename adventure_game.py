@@ -278,7 +278,7 @@ def hut_2(items):
                 print_pause("\n\nYou acquired 'Gloves'\n", 2)
                 hut_2(items)
         elif 'Troll Tooth' not in items:
-            print_pause("Granny Weatherwax says, \n   'By the way...'\n\n", 3)
+            print_pause("Granny Weatherwax says,\n\n   'By the way...'\n\n", 3)
 
             if 'Bandana' not in items:
                 print_pause("   'You'll need something to help"
@@ -288,12 +288,12 @@ def hut_2(items):
                             " get through the stench in the swamp'\n", 2)
             if 'Torch' not in items:
                 print_pause("   'You'll need some way to see"
-                            " in that cave, it is very dark'\n", 2)
+                            " in the cave, it is very dark'\n", 2)
             else:
                 print_pause("   'That torch should help"
-                            " you see in that cave.'\n", 2)
+                            " you see in the cave.'\n", 2)
             if 'Sword' not in items:
-                print_pause("   'You'll need someway to fight that troll. "
+                print_pause("   'You'll need some way to fight that troll. "
                             "They can be very dangerous'\n", 2)
                 if 'Torch' not in items:
                     print_pause("   'I've also heard that"
@@ -335,7 +335,7 @@ def swamp_1(items):
     if 'Bandana' not in items:
         print_pause("It reeks here\n", 2)
     elif 'Troll Tooth' not in items:
-        print_pause("You feel like something is watching you.\n", 2)
+        print_pause("\nYou feel like something is watching you.\n", 2)
     choose_direction(directions, destinations, items)
 
 
@@ -349,7 +349,7 @@ def road_3(items):
     if 'Bandana' not in items:
         print_pause("Something stinks.\n", 2)
     if 'Troll Tooth' not in items:
-        print_pause("You feel like something is watching you.\n", 2)
+        print_pause("\nYou feel like something is watching you.\n", 2)
     choose_direction(directions, destinations, items)
 
 
@@ -368,7 +368,7 @@ def swamp_2(items):
     if 'Bandana' not in items:
         print_pause("An unpleasent stench hangs the in air.\n", 2)
     if 'Troll Tooth' not in items:
-        print_pause("You feel like something is watching you.\n", 2)
+        print_pause("\nYou feel like something is watching you.\n", 2)
     choose_direction(directions, destinations, items)
 
 
@@ -403,7 +403,7 @@ def cliffs_5(items):
     if 'Bandana' not in items:
         print_pause("A rancid stench wafts from the north\n", 2)
     elif 'Troll Tooth' not in items:
-        print_pause("You feel like something is watching you.\n", 2)
+        print_pause("\nYou feel like something is watching you.\n", 2)
     choose_direction(directions, destinations, items)
 
 
@@ -421,7 +421,7 @@ def cave_1(items):
         print_pause("Your Bandana manages to mitigate"
                     " the stench enough for you to continue\n", 2)
     if 'Troll Tooth' not in items:
-        print_pause("You feel like something is watching you.\n", 2)
+        print_pause("\nYou feel like something is watching you.\n", 2)
         if 'Torch' not in items:
             print_pause("It looks dark in there. "
                         "Better find something to light the way.\n", 2)
@@ -442,7 +442,7 @@ def cliffs_6(items):
     if 'Bandana' not in items:
         print_pause("a rancid stench wafts from the south\n", 2)
     elif 'Troll Tooth' not in items:
-        print_pause("You feel like something is watching you.\n", 2)
+        print_pause("\nYou feel like something is watching you.\n", 2)
     choose_direction(directions, destinations, items)
 
 
@@ -498,9 +498,9 @@ def cave_2(items):
         else:
             print_pause("You see giant, stinky mushroom."
                         " This must be the one the witch wanted.\n", 2)
-        choice = valid_input("Pick it? Y/N\n", ["y", "n"])
         termios.tcflush(sys.stdin, termios.TCIOFLUSH)
         os.system("stty echo")
+        choice = valid_input("Pick it? Y/N\n", ["y", "n"])
         if choice == "y" and 'Gloves' not in items:
             os.system("stty -echo")
             print_pause("You immediately regret your decision.\n You start to "
@@ -527,24 +527,24 @@ def random_event():
               "You stumble across the half-eaten body of a goblin.\nAnd you "
               "thought you were having a bad day!", "A family of deer scatter "
               "as you approach.", "It's raining.", "You gaze skyward and catch"
-              " a glimpse of the most enormous bird you've ever seen. It must "
-              "have a nest in the cliffs", "You hear a loud 'THUD' from the "
+              " a glimpse of the most enormous bird you've ever seen.\nIt must"
+              " have a nest in the cliffs", "You hear a loud 'THUD' from the "
               "north.  Watch out for falling rocks!", "The sun is shining",
               "It is overcast", "The air feels still", "You wonder how your "
               "friends are doing back home. Gotta make it back!", "You think"
               " back to the pirates who chased you into the storm.\nBastards!"
               " This is all their fault!", "Ethereal laughter echos all around"
-              " you.  Was that real? or just in your head?", "You hear a small"
+              " you.  Was that real? Or just in your head?", "You hear a small"
               " critter scamper away, but you didn't catch a glimpse of it.",
               "A hot, dry wind breeze blows from the west.", "You could really"
-              "  o for a drink right about now.", "Just where the hell is this"
+              " go for a drink right about now.", "Just where the hell is this"
               " place anyway?", "It is eerily quiet", "The air feels heavy",
               "It seems like someone has been here recently", "The songs of"
-              " the birds makes music to your ears.", "You sneeze 'ACHOO'.",
+              " the birds make music to your ears.", "You sneeze. 'ACHOO'.",
               "You hear footsteps behind you, but when you turn"
               " around\nno one seems to be there. Gotta get out of here!",
               "You whistle a melody to pass the time. After a few minutes\nyou"
-              " notice something outthere is harmonizing with you. Huh.", "You"
+              " notice something is harmonizing with you. Creepy.", "You"
               " feel a draft across your bum. \nMust've ripped a hole in your "
               "pants during the wreck. Great.", ""]
     random.shuffle(events)
@@ -562,12 +562,11 @@ def play_game():
 
 
 def replay():
-    choice = valid_input("\nWould you like to play again? y/n\n", ["y", "n"])
     os.system("stty echo")
+    choice = valid_input("\nWould you like to play again? y/n\n", ["y", "n"])
     yes_list = ["Yeehaw!", "Oh no not again!", "Lets do this!",
                 "One more turn!", "Why does this keep happening to me?"]
     if choice == "y":
-        os.system("stty -echo")
         print_pause(random.choice(yes_list), 3)
         play_game()
     elif choice == "n":
