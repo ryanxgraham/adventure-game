@@ -1,3 +1,5 @@
+"""A Text-Based Adventure Game."""
+
 import os
 import time
 import random
@@ -6,11 +8,13 @@ import sys
 
 
 def print_pause(text, length):
+    """Print a string and wait a specified amount of time."""
     print(text)
     time.sleep(length)
 
 
 def valid_input(prompt, options):
+    """Validate user input."""
     while True:
         response = input(prompt).lower()
         for option in options:
@@ -20,6 +24,7 @@ def valid_input(prompt, options):
 
 
 def intro():
+    """Intro sequence to game."""
     print_pause("The storm rages on around you. Waves throw your small"
                 " ship", 2)
     print_pause("back and forth while you struggle to maintain course.", 3)
@@ -42,6 +47,7 @@ def intro():
 
 
 def choose_direction(directions, destinations, items):
+    """Choose a diriection to go."""
     print_pause("\nInventory:", 0)
     print(items)
     time.sleep(.5)
@@ -65,6 +71,7 @@ def choose_direction(directions, destinations, items):
 
 
 def ocean_1(items):
+    """Ocean1 Zone."""
     # current_location = [0, 0]
     directions = ["n", "e"]
     destinations = [desert_1, 0, ocean_2, 0]
@@ -75,6 +82,7 @@ def ocean_1(items):
 
 
 def desert_1(items):
+    """Desert1 Zone."""
     # current_location = [0, 1]
     directions = ["n", "s", "e"]
     destinations = [desert_2, ocean_1, forest_1, 0]
@@ -85,6 +93,7 @@ def desert_1(items):
 
 
 def desert_2(items):
+    """Desert2 Zone."""
     # current_location = [0, 2]
     directions = ["n", "s", "e"]
     destinations = [desert_3, desert_1, road_1, 0]
@@ -96,6 +105,7 @@ def desert_2(items):
 
 
 def desert_3(items):
+    """Desert3 Zone."""
     # current_location = [0, 3]
     directions = ["n", "s", "e"]
     destinations = [cliffs_1, desert_2, cliffs_2, 0]
@@ -113,6 +123,7 @@ def desert_3(items):
 
 
 def cliffs_1(items):
+    """Cliffs1 Zone."""
     # current_location = [0, 4]
     directions = ["s", "e"]
     destinations = [0, desert_3, cliffs_2, 0]
@@ -123,6 +134,7 @@ def cliffs_1(items):
 
 
 def ocean_2(items):
+    """Ocean2 Zone."""
     # current_location = [1, 0]
     directions = ["w", "n", "e"]
     destinations = [forest_1, 0, ocean_3, ocean_1]
@@ -134,6 +146,7 @@ def ocean_2(items):
 
 
 def forest_1(items):
+    """Forest1 Zone."""
     # current_location = [1,1]
     directions = ["n", "s", "e", "w"]
     destinations = [road_1, ocean_2, road_4, desert_1]
@@ -144,6 +157,7 @@ def forest_1(items):
 
 
 def road_1(items):
+    """Road1 Zone."""
     # current_location = [1,2]swamp_2
     directions = ["n", "s", "e", "w"]
     destinations = [forest_2, forest_1, road_5, desert_2]
@@ -155,6 +169,7 @@ def road_1(items):
 
 
 def forest_2(items):
+    """Forest2 Zone."""
     # current_location = [1,3]
     directions = ["n", "s", "e", "w"]
     destinations = [cliffs_2, road_1, road_2, desert_3]
@@ -165,6 +180,7 @@ def forest_2(items):
 
 
 def cliffs_2(items):
+    """Cliffs2 Zone."""
     # current_location = [1,4]
     directions = ["s", "e", "w"]
     destinations = [0, forest_2, hut_1, cliffs_1]
@@ -176,6 +192,7 @@ def cliffs_2(items):
 
 
 def ocean_3(items):
+    """Ocean3 Zone."""
     # current_location = [2,0]
     directions = ["n", "e", "w"]
     destinations = [road_4, 0, ocean_4, ocean_2]
@@ -187,6 +204,7 @@ def ocean_3(items):
 
 
 def road_4(items):
+    """Road4 Zone."""
     # current_location = [2,1]
     directions = ["n", "s", "e", "w"]
     destinations = [road_5, ocean_3, swamp_1, forest_1]
@@ -205,6 +223,7 @@ def road_4(items):
 
 
 def road_5(items):
+    """Road5 Zone."""
     # current_location = [2, 2]
     directions = ["n", "s", "e", "w"]
     destinations = [road_2, road_4, road_3, road_1]
@@ -215,6 +234,7 @@ def road_5(items):
 
 
 def road_2(items):
+    """Road2 Zone."""
     # current_location = [2,3]
     directions = ["n", "s", "e", "w"]
     destinations = [hut_1, road_5, swamp_2, forest_2]
@@ -226,6 +246,7 @@ def road_2(items):
 
 
 def hut_1(items):
+    """Hut1 Zone."""
     # current_location = [2,4]
     directions = ["n", "s", "e", "w"]
     destinations = [hut_2, road_2, cliffs_3, cliffs_2]
@@ -238,6 +259,7 @@ def hut_1(items):
 
 
 def hut_2(items):
+    """Hut2 Zone."""
     # current_location = [2, 5]
     directions = ["s"]
     destinations = [0, hut_1, 0, 0]
@@ -315,6 +337,7 @@ def hut_2(items):
 
 
 def ocean_4(items):
+    """Ocean4 Zone."""
     # current_location = [3,0]
     directions = ["n", "e", "w"]
     destinations = [swamp_1, 0, cliffs_4, ocean_3]
@@ -326,6 +349,7 @@ def ocean_4(items):
 
 
 def swamp_1(items):
+    """Swamp1 Zone."""
     # current_location = [3,1]
     directions = ["n", "s", "e", "w"]
     destinations = [road_3, ocean_4, cliffs_5, road_4]
@@ -340,6 +364,7 @@ def swamp_1(items):
 
 
 def road_3(items):
+    """Road3 Zone."""
     # current_location = [3,2]
     directions = ["n", "s", "e", "w"]
     destinations = [swamp_2, swamp_1, cave_1, road_5]
@@ -354,6 +379,7 @@ def road_3(items):
 
 
 def swamp_2(items):
+    """Swamp2 Zone."""
     # current_location = [3,3]
     directions = ["n", "s", "e", "w"]
     destinations = [cliffs_3, road_3, cliffs_6, road_2]
@@ -373,6 +399,7 @@ def swamp_2(items):
 
 
 def cliffs_3(items):
+    """Cliffs3 Zone."""
     # current_location = [3,4]
     directions = ["s", "e", "w"]
     destinations = [0, swamp_2, cliffs_7, hut_1]
@@ -383,6 +410,7 @@ def cliffs_3(items):
 
 
 def cliffs_4(items):
+    """Cliffs4 Zone."""
     # current_location = [4, 0]
     directions = ["n", "w"]
     destinations = [cliffs_5, 0, 0, ocean_4]
@@ -394,6 +422,7 @@ def cliffs_4(items):
 
 
 def cliffs_5(items):
+    """Cliffs5 Zone."""
     # current_location = [4, 1]
     directions = ["n", "s", "w"]
     destinations = [cave_1, cliffs_4, 0, swamp_1]
@@ -408,6 +437,7 @@ def cliffs_5(items):
 
 
 def cave_1(items):
+    """Cave1 Zone."""
     # current_location = [4, 2]
     directions = ["n", "s", "e", "w"]
     destinations = [cliffs_6, cliffs_5, cave_2, road_3]
@@ -433,6 +463,7 @@ def cave_1(items):
 
 
 def cliffs_6(items):
+    """Cliffs6 Zone."""
     # current_location = [4, 3]
     directions = ["n", "s", "w"]
     destinations = [cliffs_7, cave_1, 0, swamp_2]
@@ -447,6 +478,7 @@ def cliffs_6(items):
 
 
 def cliffs_7(items):
+    """Cliffs7 Zone."""
     # current_location = [4, 4]
     directions = ["s", "w"]
     destinations = [0, cliffs_6, 0, cliffs_3]
@@ -457,6 +489,7 @@ def cliffs_7(items):
 
 
 def cave_2(items):
+    """Cave2 Zone."""
     # current_location = [5, 2]
     directions = ["w"]
     destinations = [0, 0, 0, cave_1]
@@ -521,6 +554,7 @@ def cave_2(items):
 
 
 def random_event():
+    """Pick a random bit of flavor text."""
     events = ["You trip and fall as you are walking. Ouch.", "A strong gust "
               "of wind from the south nearly knocks you down", "You gaze "
               "skyward and see a cloud that looks like a bunny rabbit. Neat.",
@@ -552,6 +586,7 @@ def random_event():
 
 
 def play_game():
+    """Play the game."""
     os.system('clear')
     os.system("stty -echo")
     items = []
@@ -562,6 +597,7 @@ def play_game():
 
 
 def replay():
+    """Prompt player to play again."""
     os.system("stty echo")
     choice = valid_input("\nWould you like to play again? y/n\n", ["y", "n"])
     yes_list = ["Yeehaw!", "Oh no not again!", "Lets do this!",
