@@ -574,5 +574,5 @@ def replay():
         print_pause("Thanks for playing!", 1)
         sys.exit()
 
-
-play_game()
+if __name__ == '__main__':
+    play_game()
